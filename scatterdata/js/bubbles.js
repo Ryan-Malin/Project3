@@ -1,24 +1,29 @@
-let m = mhealth[0];
+let m = mhealth;
+let t = topcats;
+let o = others;
 let d = data[0];
-let n = nc[0];
 
 function init() {
 // dropdowns to select axis values
     let mhDropDownMenu = d3.select("#mhealthDataset");
-        Object.keys(m).forEach(item => {
-            mhDropDownMenu.append("option").text(item)
-        });
+    m.forEach(item => {
+        mhDropDownMenu.append("option").text(item)
+    });
     let compareDropDownMenu = d3.select("#compareDataset");
-        Object.keys(d).forEach(item => {
-            compareDropDownMenu.append("option").text(item)
+    t.forEach(item => {
+        compareDropDownMenu.append("option").text(item)
+    });
+    compareDropDownMenu.append("hr");
+    o.forEach(item => {
+        compareDropDownMenu.append("option").text(item)
     });
 
 // initial scatter plot
-    let x = Object.values(mhealth.map(item => item.average_number_of_mentally_unhealthy_days)[0]);
-    let y = Object.values(data.map(item => item.total_population)[0]);
-    let pop = Object.values(nc.map(item => item.population_density_per_sqmi)[0]);
-    let lat = Object.values(nc.map(item => item.lat)[0]);
-    let county = Object.values(nc.map(item => item.county)[0]);
+    let x = Object.values(data.map(item => item["Average Number Of Mentally Unhealthy Days"])[0]);
+    let y = Object.values(data.map(item => item["Average Number Of Physically Unhealthy Days"])[0]);
+    let pop = Object.values(data.map(item => item["Population Density Per Sqmi"])[0]);
+    let lat = Object.values(data.map(item => item["Lon"])[0]);
+    let county = Object.values(data.map(item => item["County"])[0]);
 
     let trace = [{
         x: x,
@@ -33,10 +38,10 @@ function init() {
     }];
     let layout = {
         xaxis: {
-            title: {text: "average_number_of_mentally_unhealthy_days"}
+            title: {text: "Average Number Of Mentally Unhealthy Days"}
         },
         yaxis: {
-            title: {text: "total_population"}
+            title: {text: "Average Number Of Physically Unhealthy Days"}
         }
     };
     Plotly.newPlot("scatter", trace, layout);
@@ -50,11 +55,11 @@ function optionChanged(){
     let dSelection = d3.selectAll(".selDataset")["_groups"][0][1].value;
 
 // redefine x and y values to match dropdown
-    let x = Object.values(m[mSelection]);
+    let x = Object.values(d[mSelection]);
     let y = Object.values(d[dSelection]);
-    let pop = Object.values(n.population_density_per_sqmi);
-    let lat = Object.values(n.lat);
-    let county = Object.values(n.county);
+    let pop = Object.values(d["Population Density Per Sqmi"]);
+    let lat = Object.values(d["Lon"]);
+    let county = Object.values(d["County"]);
     let newTrace = [{
         x: x,
         y: y,
@@ -75,7 +80,7 @@ function optionChanged(){
             title: {text: dSelection}
         }
     };
-    Plotly.newPlot("scatter", newTrace, newLayout);
+    Plotly.react("scatter", newTrace, newLayout);
 };
 
 init();
