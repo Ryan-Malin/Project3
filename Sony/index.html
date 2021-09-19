@@ -7,17 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>North Carolina Socio Health Statistics</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
 </head>
 
 <body>
-
-  <div class="container" style="background-color: rgb(239, 247, 224); background-size: cover; visibility: visible;">
+  <div class="container" style="background-color: rgb(230, 233, 227); background-size: cover; visibility: visible;">
     <div class="row">
       <div class="col-md-12 jumbotron text-center;" style="background-image: url(NC.jfif);background-size: cover;" >
         <h1 style= "color: yellow; text-align: center;">North Carolina Socio Economic Statistics</h1>
         
       </div>
     </div>
+    <!-- First Dropdown menu -->
     <div class="row">
       <div class="col-md-4">
         <div class="well" style="background-color: rgb(226, 250, 217);">
@@ -25,28 +26,33 @@
           <select id="selDataset1" onchange="optionChanged1(this.value)"></select>
         </div>
        </div>
-       <!-- <div class="col-md-4">
+       <!-- Second dropdown menu -->
+       <!-- <div class="col-md-6">
         <div class="well" style="background-color: rgb(226, 250, 217);">
           <h5>Select the category</h5>
           <select id="selDataset2" onchange="optionChanged2(this.value)"></select>
         </div>
        </div> -->
-      <div class="col-md-4">
-        <div id="gauge"></div>
-      </div>
+      <!-- <div class="col-md-4">
+        <div id="my_dataviz"></div>
+      </div> -->
     </div>
-    
+    <!-- Bubble plotting -->
     <div class="row">
       <div class="col-md-4">
         <div id="bubble"></div>
-      </div>
+      </div>      
     </div>
   </div>
-    
+  <!-- Footer -->
+  <footer style= "background-color: rgb(230, 233, 227);" class=" col-md-12">
+  <div class="footer-copyright text-center py-3">Bubble Plot</div>  
+  </footer>    
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3.v6.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="plot.js"></script>
-  <!-- <script src="static/js/bonus.js"></script>  -->
+  <script src="heatmap.js"></script> 
+  <!-- <script src="bubble2.js"></script> -->
 </body>
-
 </html>
