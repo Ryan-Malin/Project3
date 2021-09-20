@@ -81,10 +81,10 @@ d3.csv("Data/csh.csv").then(function(data) {
 
   // add the squares
   svg.selectAll()
-    .data(data, function(d) {return d.d.percent_frequent_physical_distress, 
+    .data(data, function(d) {return d.percent_frequent_physical_distress, 
         d.average_number_of_mentally_unhealthy_days +':'+d.columns;})
     .join("rect")
-      .attr("x", function(d) { return x(d.d.percent_frequent_physical_distress, 
+      .attr("x", function(d) { return x(d.percent_frequent_physical_distress, 
         d.average_number_of_mentally_unhealthy_days) })
       .attr("y", function(d) { return y(d.columns) })
       .attr("rx", 4)
