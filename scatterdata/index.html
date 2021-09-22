@@ -72,28 +72,33 @@
           <p></p><br>
         </div>
       </div>
-      <div class="row" style="text-align:center">
-        <div class="col-lg-5 col-md-8">
+      <div class="row" style="text-align:center;">
+        <div class="col-lg-5 col-md-8" style="padding-top: 25px;">
             <div class="well">
               <h4>Mental Health Category</h4>
               <select id="mhealthDataset" class="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
         </div>
 
-        <div class="col-lg-5 col-md-8">
+        <div class="col-lg-5 col-md-8" style="padding-top: 25px;">
             <div class="well">
                 <h4>Comparison</h4>
                 <select id="compareDataset" class="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
         </div>
-        <div class="col-lg-2 col-md-4">
+        <div class="col-lg-2 col-md-4" style="padding-top: 25px;">
           <h4>Linear Regression</h4>
           <div id="r2"></div>
         </div>
     </div>
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row" style="text-align:center;">
+            <div class="col-10">
               <div id="scatter"></div>
+            </div>
+            <div class="col-2">
+              <h6 style="margin-top: 100px;">Marker Style</h6>
+              <select id="scattertype" onchange="optionChanged(this.value)"></select>
+              <p id="bubblesize"></p>
             </div>
         </div>
     </div>

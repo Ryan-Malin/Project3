@@ -10,6 +10,7 @@ function init() {
     m.forEach(item => {
         mhDropDownMenu.append("option").text(item)
     });
+
     let compareDropDownMenu = d3.select("#compareDataset");
     t.forEach(item => {
         compareDropDownMenu.append("option").text(item)
@@ -18,6 +19,10 @@ function init() {
     o.forEach(item => {
         compareDropDownMenu.append("option").text(item)
     });
+
+    let markerType = d3.select("#scattertype");
+    markerType.append("option").text("Point");
+    markerType.append("option").text("Bubble");
 
 // initial scatter plot
     let x = Object.values(data.map(item => item["Average Number Of Mentally Unhealthy Days"])[0]);
@@ -31,11 +36,11 @@ function init() {
         y: y,
         mode: "markers",
         text: county,
-        marker: {
-            size: pop.map(item => Math.sqrt(item)),
-            color: lon,
-            colorscale: "Jet"
-        }
+        // marker: {
+        //     size: pop.map(item => Math.sqrt(item)),
+        //     color: lon,
+        //     colorscale: "Jet"
+        // }
     }];
     let layout = {
         xaxis: {
@@ -46,16 +51,18 @@ function init() {
         }
     };
     Plotly.newPlot("scatter", trace, layout);
-    markersInit("markers1", "Average Number Of Mentally Unhealthy Days");
-    markersInit("markers2", "Average Number Of Physically Unhealthy Days");
+    markersInit("markers1", "Average Number Of Mentally Unhealthy Days", "Point");
+    markersInit("markers2", "Average Number Of Physically Unhealthy Days", "Point");
 };
 
 // update plot on change in dropdown option
 d3.selectAll(".selDataset").on("click", optionChanged);
+d3.select("#scattertype").on("click", optionChanged);
 function optionChanged(){
 // currently selected choices for each menu
     let mSelection = d3.selectAll(".selDataset")["_groups"][0][0].value;
     let dSelection = d3.selectAll(".selDataset")["_groups"][0][1].value;
+    let dotType = d3.select("#scattertype")["_groups"][0][0].value;
 
 // regression line slope and r2
     let linreg = d3.select("#r2");
@@ -69,18 +76,6 @@ function optionChanged(){
     let pop = Object.values(d["Population Density Per Sqmi"]);
     let lat = Object.values(d["Lon"]);
     let county = Object.values(d["County"]);
-    let newTrace = [{
-        x: x,
-        y: y,
-        mode: "markers",
-        text: county,
-        marker: {
-            size: pop.map(item => Math.sqrt(item)),
-            color: lat,
-            colorscale: "Jet"
-        }
-    }];
-// update axis labels
     let newLayout = {
         xaxis: {
             title: {text: mSelection}
@@ -89,7 +84,38 @@ function optionChanged(){
             title: {text: dSelection}
         }
     };
-    Plotly.react("scatter", newTrace, newLayout);
+    if (dotType == "Bubble") {
+        let bubbleTrace = [{
+            x: x,
+            y: y,
+            mode: "markers",
+            text: county,
+            marker: {
+                size: pop.map(item => Math.sqrt(item)),
+                color: lat,
+                colorscale: "Jet",
+                colorbar: {
+                    title: {text: "Longitude"},
+                    tickmode: "array",
+                    tickvals: [-76, -84],
+                    ticktext: ["East", "West"]
+                }
+            }
+        }];
+        d3.select("#bubblesize").html("<br>Larger Marker =<br>Higher Population")
+        Plotly.react("scatter", bubbleTrace, newLayout);
+    }
+    else if (dotType == "Point") {
+        console.log(dotType)
+        let pointTrace = [{
+            x: x,
+            y: y,
+            mode: "markers",
+            text: county
+        }];
+        d3.select("#bubblesize").html("")
+        Plotly.react("scatter", pointTrace, newLayout);
+    }
     markersInit("markers1", mSelection);
     markersInit("markers2", dSelection);
 };
