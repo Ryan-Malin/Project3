@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC Socio Health Economic Status</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+  <!-- navbar -->
+    <nav class="navbar" id="bg-image"></nav>    
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">            
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Heatmap<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link active" href="https://public.tableau.com/app/profile/ryan.malin/viz/Project3_16320973129320/Story1?publish=yes">Frequest Mental Distress</a></li>
+                        <li><a class="nav-link active" href="https://public.tableau.com/views/Project3_16321813681140/BubbleFrequentMentalDistress?:language=en-US&:display_count=n&:origin=viz_share_link">Mentally Unstable Days</a></li>
+                        <li><a class="nav-link active" href="#">456</a></li>
+                        <li><a class="nav-link active" href="#">DEF</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">456</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">ABCD</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+
+    <!-- Container -->
+    <div class="container">
+        <section class="row">
+          <div class="col-lg-5 col-md-12">
+            <div class="description-content">
+              <h5 class="description-header">Select the category</h5>
+              <hr>
+              <select id="selDataset1" onchange="optionChanged1(this.value)"></select>
+              
+            </div>
+          </div>
+          <!-- Second dropdown menu -->
+          <div class="col-lg-5 col-md-12">
+            <div class="description-content">
+              <h5 class="description-header">Select the category</h5>
+              <hr>
+              <select id="selDataset2" onchange="optionChanged2(this.value)"></select>
+              
+            </div>
+          </div>
+          <!-- Bubble plotting -->
+        <div class="col-lg-11 col-md-12">   
+        <div class="row">
+            <div class="col-md-12" id="bubble">
+                <!-- <div id="bubble"></div> -->
+            </div>      
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+  ​
+            <!-- Visualizations -->
+            <section id="imageNav-area">
+              <div class="imageNav-content">
+                  <h2 class="imageNav-header" style="text-align: center;">Heatmaps</h2>
+              <hr />
+                <div class="container">
+                  <div class="row">
+                    <div class="col-6"><p>
+                      <a href="https://public.tableau.com/app/profile/ryan.malin/viz/Project3_16320973129320/Story1?publish=yes">Mentally Unstable Days
+                        <img src="Images/heatmap1.png" alt="MentallyUnstableDays", title="MentallyUnstableDays" class="imageNav-photo">
+                      </a></p>
+                    </div>
+                    <div class="col-6"><p>
+                      <a href="https://public.tableau.com/views/Project3_16321813681140/BubbleFrequentMentalDistress?:language=en-US&:display_count=n&:origin=viz_share_link">Frequent Mental Distress
+                        <img src="Images/heatmap2.png" alt="FrequentMentalDistress", title="FrequentMentalDistress" class="imageNav-photo">
+                      </a></p>
+                      </div>
+                    <div class="col-6"><p>
+                      <!-- <a href="#"> -->
+                        <!-- <img src="Resources/assets/images/Fig3.png" alt="image3", title="image3", class="imageNav-photo"> -->
+                      </a></p>
+                    </div>
+                    <div class="col-6"><p>
+                      <!-- <a href="#"> -->
+                        <!-- <img src="Resources/assets/images/Fig4.png" alt="image4", title="image4", class="imageNav-photo"> -->
+                      </a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- End of the Visualizations -->  ​
+          </div>
+        </section>
+      </div>
+      
+      <!-- footer -->
+      <div class="container-fluid my-5">
+        <footer class="bg-light text-center">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0">   
+             <p style="color: tomato; font-family: 'Courier New'; font-weight: bold; font-size: large;">North Carolina Socio Economic status of the community</p>       
+          </div>        
+        </footer>        
+      </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3.v6.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="plot.js"></script>    
+</body>
+</html>
