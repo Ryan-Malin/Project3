@@ -151,18 +151,18 @@ function socioHealthEco(){
     let bubbleTrace = {         
         x:xValue,
         y: yValue,
-        text: yValue,
+        text: [yValue, "2"],
         mode: 'markers',
         marker:{
           // Changing bubble size
           size: yValue.map(value => {
               if(value <= 1) {
-              return value * 80;
+              return value * 50;
               } else if(value < 10 ){
-              return value * 10;
-              } else if(value < 1000){
               return value * 5;
-              } else return Math.log(value)*5;
+              } else if(value < 1000){
+              return value * 2;
+              } else return Math.log(value)*2;
           }),
           type: "scatter",
           color: yValue,
