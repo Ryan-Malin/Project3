@@ -19,22 +19,18 @@ function init(){
       data1.columns.forEach(count => {
             selector1.append("option")
             .text(count);
-          });
+      });
           
-    });
+  });
   // Load csh1.csv file and append columns to the second selection
   d3.csv("Data/csh1.csv").then(data2 =>{
       console.log("hi: ", data2);
       data2.columns.forEach(count => {
             selector2.append("option")
            .text(count);
-<<<<<<< HEAD
-         });
-                 
-=======
-         });                 
->>>>>>> sony
-    });
+      });
+  });                 
+    
 };
 
 
@@ -48,12 +44,7 @@ function optionChanged1(option1) {
     }
     // console.log("xvalue: ", xValue);
     socioHealthEco();
-<<<<<<< HEAD
   })
-  
-=======
-  })  
->>>>>>> sony
 };
 
 function optionChanged2(option2) {
@@ -66,8 +57,7 @@ function optionChanged2(option2) {
     };
     // console.log("yvalue: ", yValue);
     socioHealthEco();
-  });
-  
+  });  
 };
 
 function socioHealthEco(){
@@ -77,11 +67,8 @@ function socioHealthEco(){
     let bubbleTrace = {         
         x:xValue,
         y: yValue,
-<<<<<<< HEAD
         text: [yValue, "2"],
-=======
         text: [yValue],
->>>>>>> sony
         mode: 'markers',
         marker:{
           // Changing bubble size
