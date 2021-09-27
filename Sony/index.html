@@ -12,7 +12,7 @@
 <body>
   <!-- navbar -->
     <nav class="navbar" id="bg-image"></nav>    
-    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+    <nav class="navbar navbar-expand-md sticky-top" style="background-color: rgb(232, 248, 213);">
         <a class="navbar-brand" href="index.html">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -41,65 +41,78 @@
     <!-- Container -->
     <div class="container">
         <section class="row">
-          <div class="col-lg-5 col-md-12">
+          <div class="col-lg-12 col-md-12">
             <div class="description-content">
-              <h5 class="description-header">Select the category</h5>
-              <hr>
-              <select id="selDataset1" onchange="optionChanged1(this.value)"></select>
-              
+                <h1 class="description-header">Acting on Mental Health: A Data-driven Call</h1>                
+                <p>For over four decades Americares has pursued research into mental health and socioeconomic data in order to better understand and improve the healthcare and economic lives of North Carolinians. Americares found and concluded that there are significant connections between mental health and socioeconomic factors for the vast amount of North Carolinians. Similarly, Reno (NV), has experienced similar obstacles in their community and have deployed a mental health support application at no cost to their citizens.</p>
+                <p>This application, Talkspace-Reno, has proven to benefit citizens with little or no healthcare coverage by providing them immediate healthcare access at no cost. Americares is hopeful that with this data-supported presentation the State of North Carolina will aggressively pursue this project in order to better improve the lives of its citizens.</p>
             </div>
           </div>
-          <!-- Second dropdown menu -->
-          <div class="col-lg-5 col-md-12">
-            <div class="description-content">
-              <h5 class="description-header">Select the category</h5>
-              <hr>
-              <select id="selDataset2" onchange="optionChanged2(this.value)"></select>
-              
-            </div>
-          </div>
-          <!-- Bubble plotting -->
-        <div class="col-lg-11 col-md-12">   
-        <div class="row">
-            <div class="col-md-12" id="bubble">
-                <!-- <div id="bubble"></div> -->
-            </div>      
-        </div>
-        </div>
-        <div class="col-lg-6 col-md-12">
-  ​
-            <!-- Visualizations -->
-            <section id="imageNav-area">
-              <div class="imageNav-content">
-                  <h2 class="imageNav-header" style="text-align: center;">Heatmaps</h2>
-              <hr />
-                <div class="container">
-                  <div class="row">
-                    <div class="col-6"><p>
+           <!-- Visualizations -->
+           <section id="imageNav-area">
+            <div class="imageNav-content">
+                <h2 class="imageNav-header">Heatmaps</h2>
+            <hr />
+              <div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <p>
+                      <a href="https://public.tableau.com/app/profile/ryan.malin/viz/Project3_16320973129320/Story1?publish=yes">Key Factors
+                        <img src="Images/keyFactors.png" alt="Latitude vs. Cloudiness", title="Latitude vs. Cloudiness", class="imageNav-photo">
+                      </a>
+                    </p>
+                  </div>
+                  <div class="col-6"><p>
+                    <p>
                       <a href="https://public.tableau.com/app/profile/ryan.malin/viz/Project3_16320973129320/Story1?publish=yes">Mentally Unstable Days
                         <img src="Images/heatmap1.png" alt="MentallyUnstableDays", title="MentallyUnstableDays" class="imageNav-photo">
-                      </a></p>
-                    </div>
-                    <div class="col-6"><p>
+                      </a>
+                    </p>
+                  </div>
+                  <div class="col-6">
+                    <p>
                       <a href="https://public.tableau.com/views/Project3_16321813681140/BubbleFrequentMentalDistress?:language=en-US&:display_count=n&:origin=viz_share_link">Frequent Mental Distress
                         <img src="Images/heatmap2.png" alt="FrequentMentalDistress", title="FrequentMentalDistress" class="imageNav-photo">
-                      </a></p>
-                      </div>
-                    <div class="col-6"><p>
-                      <!-- <a href="#"> -->
-                        <!-- <img src="Resources/assets/images/Fig3.png" alt="image3", title="image3", class="imageNav-photo"> -->
-                      </a></p>
-                    </div>
-                    <div class="col-6"><p>
-                      <!-- <a href="#"> -->
-                        <!-- <img src="Resources/assets/images/Fig4.png" alt="image4", title="image4", class="imageNav-photo"> -->
-                      </a></p>
-                    </div>
+                      </a>
+                    </p>
+                  </div>                  
+                  <div class="col-6"><p>
+                    <a href="wind_speed.html">
+                      <img src="Resources/assets/images/Fig4.png" alt="Latitude vs. Wind Speed", title="Latitude vs. Wind Speed", class="imageNav-photo">
+                    </a></p>
                   </div>
                 </div>
+                <section class="row">
+                  <div class="col-lg-5 col-md-12">
+                    <div class="description-content">
+                      <h5 class="description-header">Select the category</h5>
+                      <hr>
+                      <select id="selDataset1" onchange="optionChanged1(this.value)"></select>
+                      
+                    </div>
+                  </div>
+                  <!-- Second dropdown menu -->
+                  <div class="col-lg-5 col-md-12">
+                    <div class="description-content">
+                      <h5 class="description-header">Select the category</h5>
+                      <hr>
+                      <select id="selDataset2" onchange="optionChanged2(this.value)"></select>
+                      
+                    </div>
+                  </div>
+                  
+                  <!-- Bubble plotting -->
+                <div class="col-lg-11 col-md-12">   
+                <div class="row">
+                    <div class="col-md-12" id="bubble">
+                        <!-- <div id="bubble"></div> -->
+                    </div>      
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
               </div>
-            </section>
-            <!-- End of the Visualizations -->  ​
+            </div>
+          </section>         ​
           </div>
         </section>
       </div>
@@ -120,6 +133,7 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://d3js.org/d3.v6.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="plot.js"></script>    
+  <script src="plot.js"></script> 
+  <!-- <script src="barplots.js"></script>    -->
 </body>
 </html>

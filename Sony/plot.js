@@ -12,27 +12,23 @@ let xval = ""; let yval = "";
 function init(){
   let selector1 = d3.select("#selDataset1");
   let selector2 = d3.select("#selDataset2");
-
+  
   //  Load csh2.csv file and append columns to the first selection
-  d3.csv("Data/csh2.csv").then(data1 =>{
+  d3.csv("Data/csh.csv").then(data1 =>{
       console.log("hi: ", data1);
       data1.columns.forEach(count => {
+        if(count == "percent_frequent_mental_distress" || 
+        count == "average_number_of_mentally_unhealthy_days"){
             selector1.append("option")
             .text(count);
-          });
-          
-    });
-  // Load csh1.csv file and append columns to the second selection
-  d3.csv("Data/csh1.csv").then(data2 =>{
-      console.log("hi: ", data2);
-      data2.columns.forEach(count => {
-            selector2.append("option")
-           .text(count);
-         });
-                 
-    });
-};
-
+        }else if (count !== "county"){
+           // Load csh1.csv file and append columns to the second selection
+           selector2.append("option")
+          .text(count);
+        }                              
+      });
+  });
+}
 
 function optionChanged1(option1) {
   // Here you read the data for the x values only
@@ -44,8 +40,7 @@ function optionChanged1(option1) {
     }
     // console.log("xvalue: ", xValue);
     socioHealthEco();
-  })
-  
+  })  
 };
 
 function optionChanged2(option2) {
@@ -58,8 +53,7 @@ function optionChanged2(option2) {
     };
     // console.log("yvalue: ", yValue);
     socioHealthEco();
-  });
-  
+  });  
 };
 
 function socioHealthEco(){
@@ -69,7 +63,7 @@ function socioHealthEco(){
     let bubbleTrace = {         
         x:xValue,
         y: yValue,
-        text: [yValue, "2"],
+        text: [yValue],
         mode: 'markers',
         marker:{
           // Changing bubble size
@@ -108,6 +102,13 @@ function socioHealthEco(){
     // Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", [bubbleTrace], bubbleLayout);    
 }
+let barcounty = [];
+d3.csv("Data/csh.csv").then(data =>{
+  barcounty[data.map(obj =>obj.county)] = data.map(obj =>obj.percent_frequent_mental_distress);
+  console.log("barcounty:", barcounty);
+  let bar1 =  barcounty[1].sort();
+  console.log("bar1:", bar1);
+})
 
 // Initialize the selection
 init();
