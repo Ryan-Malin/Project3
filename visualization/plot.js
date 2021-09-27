@@ -28,8 +28,12 @@ function init(){
       data2.columns.forEach(count => {
             selector2.append("option")
            .text(count);
+<<<<<<< HEAD
          });
                  
+=======
+         });                 
+>>>>>>> sony
     });
 };
 
@@ -44,8 +48,12 @@ function optionChanged1(option1) {
     }
     // console.log("xvalue: ", xValue);
     socioHealthEco();
+<<<<<<< HEAD
   })
   
+=======
+  })  
+>>>>>>> sony
 };
 
 function optionChanged2(option2) {
@@ -69,7 +77,11 @@ function socioHealthEco(){
     let bubbleTrace = {         
         x:xValue,
         y: yValue,
+<<<<<<< HEAD
         text: [yValue, "2"],
+=======
+        text: [yValue],
+>>>>>>> sony
         mode: 'markers',
         marker:{
           // Changing bubble size
