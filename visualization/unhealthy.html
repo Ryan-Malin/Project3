@@ -13,11 +13,8 @@
     <!-- <nav class="navbar">        
     </nav>     -->
     <nav class="navbar navbar-expand-md sticky-top" style="background-color: rgb(232, 248, 213);">
-        <a class="navbar-brand" href="index.html">Return</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-          <div class="collapse navbar-collapse" id="navbarNav">            
+        <a class="navbar-brand" href="index.html">Home</a>
+          <div class="navbar-brand collapse navbar-collapse" id="navbarNav">            
               <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#">Heatmap<span class="caret"></span></a>
@@ -59,7 +56,8 @@
     <script type='text/javascript'>
         let divElement = document.getElementById('viz1632712061000');                    
         let vizElement = divElement.getElementsByTagName('object')[0];                    
-        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.45)+'px';                    
+        vizElement.style.width='100%';
+        vizElement.style.height=(divElement.offsetWidth*0.45)+'px';                    
         let scriptElement = document.createElement('script');                    
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
         vizElement.parentNode.insertBefore(scriptElement, vizElement);                
