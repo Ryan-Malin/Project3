@@ -107,29 +107,6 @@ function socioHealthEco(){
     // Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", [bubbleTrace], bubbleLayout); 
     
-    // let yticks = yValue.slice(0,7).sort((a, b) => b-a);
-    // console.log("yticks: =>", yticks);
-    // let xticks = xValue.slice(0,7).sort((a,b) =>b-a);
-    // console.log("xticks =>", xticks);
-
-    // let barTrace = {
-    //   x: xticks,
-    //   y: yticks,
-    //   type: 'bar',
-    //   orientation: 'h',
-    //   // text: labels,
-    //   marker: {
-    //       color: "#9FE2BF"            
-    //   }
-    // };
-    // // Create the layout for the bar chart. 
-    // let barLayout = {
-    //  height:500,
-    //  width:400, 
-    //  title: "Mentally unhealthy days",
-    // };
-    // // Plotly to plot the data with the layout. 
-    // Plotly.newPlot("bar", [barTrace], barLayout);
 }
 
 // Initialize the selection
