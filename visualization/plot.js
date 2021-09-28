@@ -124,7 +124,7 @@ function socioHealthEco(){
     // Create the layout for the bubble chart.
     let bubbleLayout = {
         height: 500,
-        width: 1135,
+        width: 1110,
         title: "Mental Health and Socio Economic Health Status of the Community ",
         font: {
           family: 'Courier New, monospace',
