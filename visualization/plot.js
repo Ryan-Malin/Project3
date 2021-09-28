@@ -91,7 +91,7 @@ function socioHealthEco(){
     let bubbleLayout = {
         height: 500,
         width: 1080,
-        title: "Mental Health and Socio Economic Health Status of the Community ",
+        title: "Mental Health Vs Socio Economic Health Status of Community",
         font: {
           family: 'Courier New, monospace',
           size: 14,
