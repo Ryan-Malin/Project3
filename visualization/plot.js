@@ -124,7 +124,7 @@ function socioHealthEco(){
     // Create the layout for the bubble chart.
     let bubbleLayout = {
         height: 500,
-        width: 1100,
+        width: 1080,
         title: "Mental Health and Socio Economic Health Status of the Community ",
         font: {
           family: 'Courier New, monospace',
@@ -134,7 +134,7 @@ function socioHealthEco(){
         },
         yaxis: {title: yval.replace(/_/g, " ").toUpperCase()},
         xaxis: {title: xval.replace(/_/g, " ").toUpperCase()},
-        margin: {l:50, r: 50, t: 50, b: 50},
+        margin: {l:100, r: 50, t: 50, b: 50},
         showlegend: false,
     };
     
