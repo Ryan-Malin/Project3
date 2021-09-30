@@ -67,8 +67,7 @@ function socioHealthEco(){
     let bubbleTrace = {         
         x:xValue,
         y: yValue,
-        text: [yValue, "2"],
-        text: [yValue],
+        text: [yValue],        
         mode: 'markers',
         marker:{
           // Changing bubble size
