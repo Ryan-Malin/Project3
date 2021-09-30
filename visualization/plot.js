@@ -17,8 +17,10 @@ function init(){
   d3.csv("Data/csh2.csv").then(data1 =>{
       console.log("hi: ", data1);
       data1.columns.forEach(count => {
+        if(count !== "county"){
             selector1.append("option")
             .text(count);
+        }
       });
           
   });
@@ -38,11 +40,13 @@ function optionChanged1(option1) {
   // Here you read the data for the x values only
   // Making xValue empty for the next option
   xValue = []; xval=option1;
+  county = [];
   d3.csv("Data/csh2.csv").then(data =>{
     for(let i=0; i<data.length; i++){
         xValue.push(parseFloat(data[i][option1]));
+        county.push(data[i]["county"]);    
     }
-    // console.log("xvalue: ", xValue);
+    console.log("county:", county);
     socioHealthEco();
   })
 };
@@ -67,7 +71,8 @@ function socioHealthEco(){
     let bubbleTrace = {         
         x:xValue,
         y: yValue,
-        text: [yValue],        
+        text: yValue,               
+        hovertext: county,               
         mode: 'markers',
         marker:{
           // Changing bubble size
@@ -97,6 +102,7 @@ function socioHealthEco(){
           color: 'blue',
           align: "left"
         },
+        
         yaxis: {title: yval.replace(/_/g, " ").toUpperCase()},
         xaxis: {title: xval.replace(/_/g, " ").toUpperCase()},
         margin: {l:100, r: 50, t: 50, b: 50},
