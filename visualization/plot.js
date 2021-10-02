@@ -68,7 +68,7 @@ function socioHealthEco(){
     console.log("Helloooo: ", xValue);
     console.log("sizessss: ", yValue);
     // Bubble chart using plotly plot
-    let bubbleTrace = {         
+    let bubbleTrace = [{         
         x:xValue,
         y: yValue,
         text: yValue,               
@@ -85,17 +85,17 @@ function socioHealthEco(){
               return value * 2;
               } else return Math.log(value)*2;
           }),
-          type: "scatter",
+          type: "scatter",                    
           color: yValue,
           colorscale: "Earth"
         }
-    };
+    }];
       
     // Create the layout for the bubble chart.
     let bubbleLayout = {
         height: 500,
         width: 1080,
-        title: "Mental Health Vs Socio Economic Health Status of Community",
+        title: "Mental Health Vs Socio Economic Health Relationship",
         font: {
           family: 'Courier New, monospace',
           size: 14,
@@ -103,6 +103,7 @@ function socioHealthEco(){
           align: "left"
         },
         
+        hovermode: 'closest',
         yaxis: {title: yval.replace(/_/g, " ").toUpperCase()},
         xaxis: {title: xval.replace(/_/g, " ").toUpperCase()},
         margin: {l:100, r: 50, t: 50, b: 50},
@@ -110,7 +111,7 @@ function socioHealthEco(){
     };
     
     // Plotly to plot the data with the layout.
-    Plotly.newPlot("bubble", [bubbleTrace], bubbleLayout); 
+    Plotly.newPlot("bubble", bubbleTrace, bubbleLayout); 
     
 }
 
