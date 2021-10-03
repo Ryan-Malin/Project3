@@ -64,15 +64,21 @@ function optionChanged2(option2) {
   });  
 };
 
+// 
+
 function socioHealthEco(){
     console.log("Helloooo: ", xValue);
     console.log("sizessss: ", yValue);
+    
     // Bubble chart using plotly plot
     let bubbleTrace = [{         
         x:xValue,
-        y: yValue,
-        text: yValue,               
-        hovertext: county,               
+        y: yValue,        
+        text: yValue,              
+        hovertext: county,
+        hovertemplate: '<b>xValue</b>: %{x}<br>' +
+                        '<b>yValue</b>: %{y}<br>' +
+                        '<b>County</b>: %{hovertext}',                
         mode: 'markers',
         marker:{
           // Changing bubble size
@@ -117,3 +123,5 @@ function socioHealthEco(){
 
 // Initialize the selection
 init();
+let rvalue = stats.correlationCoefficient(xValue, yValue);
+console.log("R : ",rvalue);
